@@ -52,7 +52,7 @@ function AdminAssignedList() {
     console.log('driver last')
     console.log(last)
     axios
-      .post("/categorizeCustomer", { driverID: driverID })
+      .post("/api/admin/categorizeCustomer", { driverID: driverID })
       .then((response) => {
         console.log(response.data)
         setUlist(response.data)
@@ -95,7 +95,7 @@ function AdminAssignedList() {
 
   useEffect(() => {
     axios
-      .get("/getDriver")
+      .get("/api/admin/getDriver")
       .then((response) => {
         console.log(response)
         setDlist(response.data)

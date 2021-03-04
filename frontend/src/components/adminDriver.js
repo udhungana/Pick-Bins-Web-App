@@ -23,17 +23,17 @@ import {
 } from "reactstrap";
 import logo from "../assets/logo.png";
 import axios from "axios";
+import { Table } from "rsuite";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import SideBarNav from "./sidebarNav";
 import BrandHeader from "./brandHeader";
 
-const AdminUser = () => {
-  const [token, setToken, deleteToken] = useCookies(["mr-token"]);
+const AdminDriver = () => {
   const [listM, setlistM] = useState([]);
 
   useEffect(() => {
     axios
-      .get("/getCustomer")
+      .get("/api/admin/getDriver")
       .then((response) => {
         setlistM(response.data);
         console.log(response.data);
@@ -42,39 +42,41 @@ const AdminUser = () => {
         console.log(error);
       });
   }, []);
+
   return (
     <div>
       <BrandHeader />
-      <div className="row" style={{ display: "flex" }}>
+      <div className="row">
         <SideBarNav />
-
         {/* add table/other content in each page after this */}
-
-        <div className="row" style={{ flex: 1, marginLeft: 20 }}>
-          {listM.map((user, index) => (
+        <div
+          className="row"
+          style={{ flex: 1, alignContent: "flex-start", marginLeft: 20 }}
+        >
+          {listM.map((driver, index) => (
             <ListGroup
               key={index}
               style={{
                 margin: 20,
-                width: 300,
               }}
             >
               <ListGroupItem>
-                <strong>Name:</strong> {user.fName} {user.lName}
+                <strong>Name:</strong> {driver.fName} {driver.lName}
                 <br />
-                <strong>Address:</strong> {user.street}
+                <strong>Address:</strong> {driver.street}
                 <br />
-                <strong>Email:</strong> {user.email}
+                <strong>Email:</strong> {driver.email}
               </ListGroupItem>
             </ListGroup>
           ))}
           {/* add table/other content in each page  upto here */}
         </div>
+        {/* add table/other content in each page  upto here */}
       </div>
     </div>
   );
 };
-export default AdminUser;
+export default AdminDriver;
 
 const textStl = {
   color: "green",

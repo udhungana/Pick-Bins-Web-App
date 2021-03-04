@@ -21,18 +21,22 @@ const PORT = process.env.PORT || 4000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.json({ message: "API Working" });
+//app.get("/api", (req, res) => {
+app.get('/api', (req, res) => { 
+ res.json({ message: "API Working" });
 });
 
+// app.get('/home', (req, res) => { 
+//   res.json({ message: "Home Working" });
+//  });
 /**
  * Router Middleware
  * Router - /user/*
  * Method - *
  */
-app.use("/user", user);
-app.use(task);
-app.use(admin);
+app.use("/api/user", user);
+app.use("/api/task",task);
+app.use("/api/admin",admin);
 
 var server = app.listen(PORT, (req, res) => {
   console.log(`Server Started at PORT ${PORT}`);

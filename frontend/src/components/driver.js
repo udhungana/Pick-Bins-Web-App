@@ -35,7 +35,7 @@ function Driver() {
     // Run! Like go get some data from an API.
     if (logout == false && token["mr-token"]) {
       axios
-        .get("/getTask", {
+        .get("/api/task/getTask", {
           headers: { Authorization: `Bearer ${token["mr-token"]}` },
         })
         .then((response) => {
@@ -58,7 +58,7 @@ function Driver() {
     //updating location of driver
     axios
       .post(
-        "/updateDriverLocation",
+        "/api/task/updateDriverLocation",
         { current_location: addr },
         { headers: { Authorization: `Bearer ${token["mr-token"]}` } }
       )

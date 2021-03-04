@@ -15,7 +15,7 @@ function AdminHome() {
 
   useEffect(() => {
     axios
-      .get("/getDriver")
+      .get("/api/admin/getDriver")
       .then((response) => {
         console.log(response)
         setMappableFields(response.data)

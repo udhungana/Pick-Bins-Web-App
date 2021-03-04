@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pick-bins-client-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pick-bins-client-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: pick-bins-client-app
+    spec:
+      containers:
+      - image: pick-bins-client:latest
+        name: pick-bins-client
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 80
+

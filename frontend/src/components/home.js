@@ -49,7 +49,7 @@ const Home = () => {
     setDate(date);
 
     axios
-      .get("/getSchedule", {
+      .get("/api/task/getSchedule", {
         headers: { Authorization: `Bearer ${token["mr-token"]}` },
       })
       .then((response) => {

@@ -101,7 +101,7 @@ function AdminGenerateList() {
     console.log('driver last')
     console.log(last)
     axios
-      .post("/generateTask", { driverID: driverID })
+      .post("/api/task/generateTask", { driverID: driverID })
       .then((response) => {
         console.log(response.data.path)
         setUlist(response.data.path)
@@ -138,7 +138,7 @@ function AdminGenerateList() {
 
   useEffect(() => {
     axios
-      .get("/getDriver")
+      .get("/api/admin/getDriver")
       .then((response) => {
         console.log(response)
         setDlist(response.data)

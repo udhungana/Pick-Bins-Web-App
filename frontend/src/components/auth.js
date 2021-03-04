@@ -28,7 +28,7 @@ function Auth() {
 
   const loginClicked = () => {
     axios
-      .post("/user/login", {
+      .post("/api/user/login", {
         email,
         password,
       })
@@ -75,7 +75,7 @@ function Auth() {
       setPasswordView(false);
 
       axios
-        .post("/user/signup", {
+        .post("/api/user/signup", {
           first_name,
           last_name,
           address,
