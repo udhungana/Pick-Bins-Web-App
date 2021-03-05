@@ -19,7 +19,7 @@ spec:
         app: pick-bins-client-app
     spec:
       containers:
-      - image: pick-bins-client:latest
+      - image: bipkar/pick-bins-client:latest
         name: pick-bins-client
         imagePullPolicy: Never
         ports:
