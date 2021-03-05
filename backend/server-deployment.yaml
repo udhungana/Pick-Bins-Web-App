@@ -13,7 +13,7 @@ spec:
         app: pick-bins-server-app
     spec:
       containers:
-      - image: pick-bins-server:latest
+      - image: bipkar/pick-bins-server:latest
         name: server-image
         ports:
         - containerPort: 4000
