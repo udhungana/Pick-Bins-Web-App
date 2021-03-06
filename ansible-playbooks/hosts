@@ -1,0 +1,6 @@
+[client-servers]
+node
+
+[k8s-server]
+master
+

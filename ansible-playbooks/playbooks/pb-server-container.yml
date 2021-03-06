@@ -1,0 +1,19 @@
+---
+- name: pick-bins-server
+  hosts: client-servers
+  become: true
+  tasks:
+
+  - name: Build a pick-bins server docker image
+    command: docker build -t pick-bins-server .
+    args:
+      chdir: /opt/pick-bins-server  
+  - name: Tag the image to push it to the registry
+    command: docker tag pick-bins-server:latest bipkar/pick-bins-server:latest
+  
+  - name: Push the image
+    command: docker push bipkar/pick-bins-server:latest
+
+  - name: Delete the images after push is completed
+    command: docker rmi -f pick-bins-server:latest bipkar/pick-bins-server:latest
+
