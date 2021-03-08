@@ -17,7 +17,7 @@ spec:
         name: server-image
         ports:
         - containerPort: 4000
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         # env:
         # - name: ME_CONFIG_MONGODB_SERVER
         #   valueFrom:
