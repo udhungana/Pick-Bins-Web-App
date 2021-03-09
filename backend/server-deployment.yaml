@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pick-bins-server-app-deploy
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: pick-bins-server-app
