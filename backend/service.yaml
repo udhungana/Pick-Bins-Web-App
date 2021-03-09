@@ -9,5 +9,5 @@ spec:
     nodePort: 32647
   selector:
     app: pick-bins-server-app
-  type: LoadBalancer
+  type: ClusterIP
 
