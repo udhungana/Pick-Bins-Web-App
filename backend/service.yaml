@@ -6,7 +6,6 @@ spec:
   ports:
   - port: 4000 
     targetPort: 4000
-    nodePort: 32647
   selector:
     app: pick-bins-server-app
 
