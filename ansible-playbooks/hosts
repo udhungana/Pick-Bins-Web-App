@@ -1,6 +1,6 @@
 [client-servers]
-node
+worker-node
 
 [k8s-server]
-master
+master-node
 
