@@ -1,0 +1,15 @@
+---
+- name: Pick Bins is ready for deployment
+  hosts: k8s-server
+  tasks:
+   - name: First, create deploy the backend deployment 
+     command: kubectl apply -f /opt/pick-bins-server/server-deployment.yaml
+ 
+   - name: Deploy the backend service
+     command: kubectl apply -f /opt/pick-bins-server/service.yaml
+
+   - name: Create and deploy the frontend deployment
+     command: kubectl apply -f /opt/pick-bins-client/deployment.yaml
+
+   - name: Deploy teh frontend service
+     command: kubectl apply -f /opt/pick-bins-client/service.yaml
