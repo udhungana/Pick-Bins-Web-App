@@ -14,7 +14,7 @@ RUN yarn build
 
 FROM nginx:latest
 
-LABEL maintainer=BIPUL-KARKI
+LABEL maintainer=utsav
 
 COPY --from=pick-bins-client /client/build/ /usr/share/nginx/html
 
